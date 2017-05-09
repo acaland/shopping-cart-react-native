@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, Linking } from 'react-native';
 import Thumbnail from './Thumbnail';
 import ProductDetail from './ProductDetail';
 import QuantityManager from './QuantityManager';
 
 class OrderItem extends Component {
+  state = { newPrice: 25 }
   render() {
     return(
-      <View style={styles.wrapper}>
+      <TouchableOpacity
+        style={styles.wrapper}
+        onPress={() => Linking.openURL("https://www.google.it")}
+        activeOpacity={0.8}>
         <Thumbnail url="https://images-na.ssl-images-amazon.com/images/I/51OqHiEyDtL.jpg"/>
         <ProductDetail
           title="Mastering React Native"
           desc="Libro di testo utilizzato per il corso di LAP 2 @ Unict"
-          price={25}
+          price={this.state.newPrice}
+          onPriceUpdate={(newPrice) => this.setState({ newPrice: newPrice})}
         />
-      <QuantityManager basePrice={25}/>
-      </View>
+      <QuantityManager basePrice={this.state.newPrice} onQuantityChange={this.props.onQuantityChange}/>
+      </TouchableOpacity>
     )
   }
 }
