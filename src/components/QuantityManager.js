@@ -14,8 +14,10 @@ class QuantityManager extends Component {
 
     if (decrease && this.state.quantity > 0) {
       this.setState({quantity: this.state.quantity - 1});
+      this.props.onQuantityChange(-this.props.basePrice);
     } else {
-      this.setState({quantity: this.state.quantity + 1})
+      this.setState({quantity: this.state.quantity + 1});
+      this.props.onQuantityChange(this.props.basePrice);
     }
   }
   render() {
@@ -34,7 +36,7 @@ class QuantityManager extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    borderWidth: 1,
+    //borderWidth: 1,
     flex: 1,
     justifyContent: 'center'
   },

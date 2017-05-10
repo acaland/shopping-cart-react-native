@@ -1,21 +1,35 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Linking } from 'react-native';
 import Thumbnail from './Thumbnail';
 import ProductDetail from './ProductDetail';
 import QuantityManager from './QuantityManager';
 
 class OrderItem extends Component {
+  state = { newPrice: 25 }
+
+  updatePrice = newPrice =>
+    this.setState({ newPrice })
+
   render() {
+    //console.log("mi stanno passando, forse, il dettaglio prodotto:");
+    //console.log(this.props.productDetail);
     return(
-      <View style={styles.wrapper}>
+      <TouchableOpacity
+        style={styles.wrapper}
+        activeOpacity={0.8}
+        onPress={() => Linking.openURL(this.props.productDetail.url)}
+      >
         <Thumbnail url="https://images-na.ssl-images-amazon.com/images/I/51OqHiEyDtL.jpg"/>
         <ProductDetail
           title="Mastering React Native"
           desc="Libro di testo utilizzato per il corso di LAP 2 @ Unict"
+          onPriceChange={this.updatePrice}
           price={25}
         />
-      <QuantityManager basePrice={25}/>
-      </View>
+      <QuantityManager
+        onQuantityChange={this.props.onQuantityChange}
+        basePrice={this.state.newPrice}/>
+      </TouchableOpacity>
     )
   }
 }
