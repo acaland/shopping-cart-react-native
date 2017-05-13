@@ -29,7 +29,16 @@ const styles = StyleSheet.create({
 
 
 class ProductDetail extends React.Component {
-  state = { newPrice: 25 }
+  constructor(props) {
+    super(props);
+    console.log("in constructor");
+    console.log(this.props);
+    this.state = { newPrice: this.props.price }
+  }
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({ newPrice: nextProps.price })
+  // }
+  //state = { newPrice: this.props.price }
 
   // handleUpdatePrice = text => {
   //   this.setState({ newPrice: text });
@@ -37,6 +46,12 @@ class ProductDetail extends React.Component {
   // }
 
   handleUpdatePrice(text) {
+    if (isNaN(text)) {
+      return;
+    }
+    if (text == "") {
+      text = 0;
+    }
     this.setState({ newPrice: text });
     this.props.onPriceChange(parseFloat(text));
   }
@@ -44,6 +59,8 @@ class ProductDetail extends React.Component {
   render() {
     const { wrapper } = styles;
     const { title, desc, price } = this.props;
+    console.log("in render");
+    //console.log(this.props);
 
 
 

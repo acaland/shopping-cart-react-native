@@ -11,7 +11,9 @@ class QuantityManager extends Component {
   }
 
   onQuantityChange({ decrease }) {
-
+    if (decrease && this.state.quantity == 0) {
+      return;
+    }
     if (decrease && this.state.quantity > 0) {
       this.setState({quantity: this.state.quantity - 1});
       this.props.onQuantityChange(-this.props.basePrice);
@@ -28,7 +30,7 @@ class QuantityManager extends Component {
             <Button title="+" onPress={this.onQuantityChange} />
             <Button title="-" onPress={() => this.onQuantityChange({decrease: true})} />
           </View>
-          <Text>Subtotal: {this.state.quantity * this.props.basePrice}</Text>
+          <Text>Subtotal: {(this.state.quantity * this.props.basePrice).toFixed(2)}</Text>
         </View>
       );
   }

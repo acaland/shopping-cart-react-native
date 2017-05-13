@@ -5,10 +5,13 @@ import Total from './Total';
 
 class ShoppingList extends Component {
 
-  state = { items: [] }
+  // state = { items: [] }
 
   componentWillMount() {
-    fetch('https://www.dmi.unict.it/~calanducci/LAP2/data.json')
+    fetch('https://www.dmi.unict.it/~calanducci/LAP2/data.json', {
+      headers: {
+        'Cache-Control': 'no-cache'
+      }})
       .then(response => response.json())
       .then(responseData => this.setState({ dataSource: this.ds.cloneWithRows(responseData.items) }))
       .catch(error => alert("qualcosa di bruttissimo è successo :("))
@@ -21,7 +24,7 @@ class ShoppingList extends Component {
     });
     this.state = {
       total: 0,
-      dataSource: this.ds.cloneWithRows(this.props.items)
+      dataSource: this.ds.cloneWithRows([])
     }
   }
 
@@ -43,8 +46,9 @@ class ShoppingList extends Component {
   render() {
       return (
         <View style={[styles.wrapper, this.props.style]}>
-          <Total total={this.state.total}/>
+          <Total total={(this.state.total).toFixed(2)}/>
           <ListView
+            enableEmptySections
             dataSource={this.state.dataSource}
             renderRow={this.renderRow.bind(this)}
             />

@@ -5,7 +5,7 @@ import ProductDetail from './ProductDetail';
 import QuantityManager from './QuantityManager';
 
 class OrderItem extends Component {
-  state = { newPrice: 25 }
+  state = { newPrice: this.props.productDetail.price }
 
   updatePrice = newPrice =>
     this.setState({ newPrice })
@@ -13,18 +13,19 @@ class OrderItem extends Component {
   render() {
     //console.log("mi stanno passando, forse, il dettaglio prodotto:");
     //console.log(this.props.productDetail);
+    const { productDetail } = this.props;
     return(
       <TouchableOpacity
         style={styles.wrapper}
         activeOpacity={0.8}
-        onPress={() => Linking.openURL(this.props.productDetail.url)}
+        onPress={() => Linking.openURL(productDetail.url)}
       >
-        <Thumbnail url="https://images-na.ssl-images-amazon.com/images/I/51OqHiEyDtL.jpg"/>
+        <Thumbnail url={productDetail.thumbnailUrl}/>
         <ProductDetail
-          title="Mastering React Native"
-          desc="Libro di testo utilizzato per il corso di LAP 2 @ Unict"
+          title={productDetail.title}
+          desc={productDetail.description}
           onPriceChange={this.updatePrice}
-          price={25}
+          price={productDetail.price}
         />
       <QuantityManager
         onQuantityChange={this.props.onQuantityChange}
