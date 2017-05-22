@@ -1,29 +1,31 @@
 import Expo from 'expo';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Header from './src/components/Header';
-import ShoppingList from './src/components/ShoppingList';
+import { Provider } from 'react-redux';
+import HomeScreen from './src/components/HomeScreen';
+import createStore from './src/createStore';
 
-class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Header title="Shopping Card" style={{ top: 20 }}/>
-        { /* <Total /> */ }
-        <ShoppingList style={{ top: 20 }} />
+const store = createStore();
+console.log("creiamo lo store");
+console.log(store.getState());
 
-      </View>
-    );
-  }
-}
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <View style={styles.container}>
+//         <Header title="Shopping Card" style={{ top: 20 }}/>
+//         { /* <Total /> */ }
+//         <ShoppingList style={{ top: 20 }} />
+//
+//       </View>
+//     );
+//   }
+// }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    //alignItems: 'center',
-    //justifyContent: 'flex-start',
-  },
-});
+const App = () => (
+  <Provider store={store}>
+    <HomeScreen />
+  </Provider>
+)
+
 
 Expo.registerRootComponent(App);

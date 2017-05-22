@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
 class ProductDetail extends React.Component {
   constructor(props) {
     super(props);
-    console.log("in constructor");
-    console.log(this.props);
+    // console.log("in constructor");
+    // console.log(this.props);
     this.state = { newPrice: this.props.price }
   }
   // componentWillReceiveProps(nextProps) {
@@ -59,7 +59,7 @@ class ProductDetail extends React.Component {
   render() {
     const { wrapper } = styles;
     const { title, desc, price } = this.props;
-    console.log("in render");
+    // console.log("in render");
     //console.log(this.props);
 
 

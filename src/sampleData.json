@@ -1,0 +1,46 @@
+{
+   "items":[
+      {
+         "title":"Masterining React Native",
+         "thumbnailUrl":"https://images-na.ssl-images-amazon.com/images/I/51OqHiEyDtL.jpg",
+         "description":"One of the book used during the LAP2 course for learning React Native development",
+         "price":30.4,
+         "url":"https://www.amazon.it/dp/1785885782/ref=cm_sw_r_cp_ep_dp_xxFdzb4HAR9N9"
+      },
+      {
+         "title":"Getting Started With React Native",
+         "thumbnailUrl":"https://images-na.ssl-images-amazon.com/images/I/51DkGupUKoL.jpg",
+         "description":"One of the book used during the LAP2 course for learning React Native development",
+         "price":30.4,
+         "url":"https://www.amazon.it/dp/1785885189/ref=cm_sw_r_cp_ep_dp_XyFdzbBK48PEE"
+      },
+      {
+         "title":"Masterining React Native",
+         "thumbnailUrl":"https://images-na.ssl-images-amazon.com/images/I/51OqHiEyDtL.jpg",
+         "description":"One of the book used during the LAP2 course for learning React Native development",
+         "price":30.4,
+         "url":"https://www.amazon.it/dp/1785885782/ref=cm_sw_r_cp_ep_dp_xxFdzb4HAR9N9"
+      },
+      {
+         "title":"Getting Started With React Native",
+         "thumbnailUrl":"https://images-na.ssl-images-amazon.com/images/I/51DkGupUKoL.jpg",
+         "description":"One of the book used during the LAP2 course for learning React Native development",
+         "price":30.4,
+         "url":"https://www.amazon.it/dp/1785885189/ref=cm_sw_r_cp_ep_dp_XyFdzbBK48PEE"
+      },
+      {
+         "title":"Masterining React Native",
+         "thumbnailUrl":"https://images-na.ssl-images-amazon.com/images/I/51OqHiEyDtL.jpg",
+         "description":"One of the book used during the LAP2 course for learning React Native development",
+         "price":30.4,
+         "url":"https://www.amazon.it/dp/1785885782/ref=cm_sw_r_cp_ep_dp_xxFdzb4HAR9N9"
+      },
+      {
+         "title":"Getting Started With React Native",
+         "thumbnailUrl":"https://images-na.ssl-images-amazon.com/images/I/51DkGupUKoL.jpg",
+         "description":"One of the book used during the LAP2 course for learning React Native development",
+         "price":30.4,
+         "url":"https://www.amazon.it/dp/1785885189/ref=cm_sw_r_cp_ep_dp_XyFdzbBK48PEE"
+      }
+   ]
+}
